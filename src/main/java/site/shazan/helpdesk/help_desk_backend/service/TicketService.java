@@ -13,7 +13,9 @@ import site.shazan.helpdesk.help_desk_backend.repository.TicketRepo;
 public class TicketService {
     private final TicketRepo ticketRepo;
 
+    @Transactional
     public Ticket createTicket(Ticket ticket) {
+       // ticket.setId(null); //force fully adding the null so it create id automatically
         return ticketRepo.save(ticket);
     }
     public Ticket getTicket(Long ticketId) {
@@ -24,7 +26,7 @@ public class TicketService {
         return ticketRepo.save(ticket);
     }
 
-    public Ticket getTicketByUsername(String email) {
+    public Ticket getTicketByEmailId(String email) {
         return ticketRepo.findByEmail(email).orElse(null);
     }
 
