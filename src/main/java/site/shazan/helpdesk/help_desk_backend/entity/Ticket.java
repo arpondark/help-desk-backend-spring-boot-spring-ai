@@ -27,10 +27,10 @@ public class Ticket {
     private String category;
 
     @Lob
-    private String sumuary;
+    private String summary;
 
     @Enumerated(EnumType.STRING)
-    private Priority pririty;
+    private Priority priority;
 
     @Column(unique = true)
     private String email;
@@ -38,8 +38,8 @@ public class Ticket {
     private Status status;
 
     @CreationTimestamp
-    private LocalDateTime created_at;
+    private LocalDateTime createdOn;
     @UpdateTimestamp
-    private LocalDateTime updated_at;
+    private LocalDateTime updatedOn;
 
 }
