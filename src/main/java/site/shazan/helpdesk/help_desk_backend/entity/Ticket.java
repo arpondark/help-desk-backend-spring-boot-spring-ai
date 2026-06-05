@@ -21,8 +21,12 @@ public class Ticket {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Lob
+    @Column(length = 1000)
     private String description;
+
+
+    private String category;
+
     @Lob
     private String sumuary;
 

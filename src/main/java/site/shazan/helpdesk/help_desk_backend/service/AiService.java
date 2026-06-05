@@ -1,8 +1,9 @@
 package site.shazan.helpdesk.help_desk_backend.service;
 
-import lombok.Data;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.ai.chat.client.ChatClient;
+import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Service;
 import site.shazan.helpdesk.help_desk_backend.tools.TicketDatabaseTool;
 
@@ -12,14 +13,16 @@ public class AiService {
     private final ChatClient chatClient;
     private final TicketDatabaseTool ticketDatabaseTool;
 
-    public String getResponseFromAssistant(String queary){
+    @Value("classpath:/helpdesk-system.st")
+    private Resource systemPrompt;
+
+    public String getResponseFromAssistant(String query){
         return this.chatClient
                 .prompt()
                 .tools(ticketDatabaseTool)
-                .user(queary)
+                .system(systemPrompt)
+                .user(query)
                 .call()
                 .content();
     }
-
-
 }
