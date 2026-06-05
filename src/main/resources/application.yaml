@@ -21,7 +21,6 @@ spring:
       api-key: ${DEEPSEEK_API_KEY}
       base-url: https://api.deepseek.com
       chat:
-        completions-path: /chat/completions
         options:
           model: deepseek-chat
 

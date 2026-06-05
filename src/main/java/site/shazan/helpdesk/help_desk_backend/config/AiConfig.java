@@ -11,7 +11,7 @@ public class AiConfig {
     @Bean
     public ChatClient chatClient(ChatClient.Builder builder) {
         return builder
-                .defaultSystem("You're a helpful assistant for a help desk system name DracAi. ")
+                .defaultSystem("Summerize the response within 400 words and make it as simple as possible")
                 .defaultAdvisors(new SimpleLoggerAdvisor())
                 .build();
     }

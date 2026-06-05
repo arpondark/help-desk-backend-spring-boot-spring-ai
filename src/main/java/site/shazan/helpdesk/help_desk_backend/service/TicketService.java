@@ -1,5 +1,6 @@
 package site.shazan.helpdesk.help_desk_backend.service;
 
+import jakarta.transaction.Transactional;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -17,6 +18,10 @@ public class TicketService {
     }
     public Ticket getTicket(Long ticketId) {
         return ticketRepo.findById(ticketId).orElse(null);
+    }
+    @Transactional
+    public Ticket updateTicket(Ticket ticket) {
+        return ticketRepo.save(ticket);
     }
 
     public Ticket getTicketByUsername(String username) {
