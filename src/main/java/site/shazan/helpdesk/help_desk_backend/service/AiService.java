@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 import site.shazan.helpdesk.help_desk_backend.tools.TicketDatabaseTool;
 
 @Service
-@Data
 @RequiredArgsConstructor
 public class AiService {
     private final ChatClient chatClient;
