@@ -24,8 +24,8 @@ public class TicketService {
         return ticketRepo.save(ticket);
     }
 
-    public Ticket getTicketByUsername(String username) {
-        return ticketRepo.findByUsername(username).orElse(null);
+    public Ticket getTicketByUsername(String email) {
+        return ticketRepo.findByEmail(email).orElse(null);
     }
 
 

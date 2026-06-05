@@ -11,7 +11,6 @@ import org.hibernate.annotations.UpdateTimestamp;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name="help_desk_ticket")
 @AllArgsConstructor
 @Data
 @NoArgsConstructor
@@ -34,7 +33,7 @@ public class Ticket {
     private Priority pririty;
 
     @Column(unique = true)
-    private String username;
+    private String email;
     @Enumerated(EnumType.STRING)
     private Status status;
 
